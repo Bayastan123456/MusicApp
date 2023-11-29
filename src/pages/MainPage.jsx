@@ -10,6 +10,7 @@ const runSearch = (query) => {
   }
 
   const lowerCaseQuery = query.toLowerCase();
+
   return tracksList.filter(
     (track) =>
       track.title.toLowerCase().includes(lowerCaseQuery) ||
@@ -19,11 +20,12 @@ const runSearch = (query) => {
 
 const MainPage = () => {
   const [tracks, setTracks] = useState(tracksList);
+
   const handleChange = (event) => {
     const foundTracks = runSearch(event.target.value);
-
     setTracks(foundTracks);
   };
+
   return (
     <div className={style.search}>
       <Input
